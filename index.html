@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神漫画-原神漫画大全与阅读指南</title>
+    <meta name="description" content="原神漫画官方与同人作品大全，提供原神漫画阅读指南、官方网站入口、热门角色漫画推荐及常见问题解答，帮助旅行者快速找到心仪的原神漫画作品。">
+    <meta name="keywords" content="原神漫画,原神漫画大全,原神漫画阅读,原神官方漫画,原神同人漫画,原神漫画推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 页眉 */
+        .site-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 18px 0;
+            border-bottom: 3px solid #e94560;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+        }
+        .brand-text {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .brand-text span {
+            color: #e94560;
+        }
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+        .main-nav a {
+            color: #b8c6d8;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .main-nav a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(180deg, #0f3460 0%, #16213e 100%);
+            padding: 70px 0;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 18px;
+            color: #b8c6d8;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+        }
+
+        /* 通用区块 */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+        .section-sub {
+            text-align: center;
+            color: #7f8c9b;
+            font-size: 15px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: #e94560;
+            margin: 0 auto 40px;
+            border-radius: 2px;
+        }
+
+        /* 官方漫画简介卡片 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .intro-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .intro-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .intro-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #16213e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .intro-card p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .card-icon {
+            font-size: 28px;
+            margin-right: 4px;
+        }
+
+        /* 漫画分类 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .category-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eef0f3;
+        }
+        .category-card:hover {
+            border-color: #e94560;
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.1);
+        }
+        .category-card .cat-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+        .category-card h3 {
+            font-size: 18px;
+            color: #16213e;
+            margin-bottom: 8px;
+        }
+        .category-card p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* 漫画推荐列表 */
+        .comic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .comic-item {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .comic-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .comic-cover {
+            height: 160px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #fff;
+            position: relative;
+        }
+        .comic-cover.cover-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .comic-cover.cover-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .comic-cover.cover-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        .comic-cover.cover-5 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        .comic-cover.cover-6 {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+        .comic-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .comic-info {
+            padding: 20px;
+        }
+        .comic-info h3 {
+            font-size: 17px;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .comic-info .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #4a6cf7;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 4px 4px 4px 0;
+        }
+        .comic-info p {
+            color: #718096;
+            font-size: 14px;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* 阅读指南 */
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            counter-reset: step;
+        }
+        .guide-step {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .guide-step:hover {
+            transform: translateY(-4px);
+        }
+        .guide-step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            width: 36px;
+            height: 36px;
+            background: #e94560;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(233, 69, 96, 0.3);
+        }
+        .guide-step h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            color: #16213e;
+            margin-top: 10px;
+        }
+        .guide-step p {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* 注意事项 */
+        .tips-box {
+            background: #fff;
+            border-left: 4px solid #e94560;
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+        }
+        .tips-box h3 {
+            font-size: 18px;
+            color: #16213e;
+            margin-bottom: 10px;
+        }
+        .tips-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tips-box li {
+            padding: 6px 0;
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        .tips-box li::before {
+            content: "✔";
+            color: #e94560;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid #f0f0f0;
+            transition: border-color 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: #e94560;
+        }
+        .faq-item h3 {
+            font-size: 17px;
+            color: #16213e;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item h3::after {
+            content: "+";
+            font-size: 22px;
+            color: #e94560;
+            font-weight: 400;
+        }
+        .faq-item p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-top: 8px;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background: #1a1a2e;
+            color: #b8c6d8;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .footer-col a {
+            color: #b8c6d8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover {
+            color: #e94560;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .main-nav ul {
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+            .main-nav a {
+                font-size: 13px;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .comic-list,
+            .category-grid,
+            .guide-steps,
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-item h3 {
+                font-size: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .hero {
+                padding: 50px 0;
+            }
+            .brand-text {
+                font-size: 18px;
+            }
+            .hero-btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="brand-icon">漫</div>
+            <div class="brand-text">原神漫画<span>·</span>漫游指南</div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#intro">漫画简介</a></li>
+                <li><a href="#category">漫画分类</a></li>
+                <li><a href="#recommend">热门推荐</a></li>
+                <li><a href="#guide">阅读指南</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <h1>原神漫画</h1>
+        <p>探索提瓦特大陆的精彩故事，从官方漫画到优秀同人作品，这里为你提供全面的原神漫画阅读指南与作品推荐。无论你是初入提瓦特的新旅人，还是资深冒险家，都能在这里找到心仪的原神漫画。</p>
+        <a href="#recommend" class="hero-btn">开始探索漫画</a>
+    </div>
+</section>
+
+<main>
+    <!-- 漫画简介 -->
+    <section class="section" id="intro">
+        <div class="container">
+            <h2 class="section-title">什么是原神漫画</h2>
+            <div class="section-line"></div>
+            <p class="section-sub">原神漫画是以《原神》游戏世界观为基础创作的漫画作品，包括官方出品与同人创作两大类</p>
+            <div class="intro-grid">
+                <article class="intro-card">
+                    <h3><span class="card-icon">📖</span>官方漫画</h3>
+                    <p>由米哈游官方推出的《原神》系列漫画，主要讲述游戏主线剧情之前的故事，进一步丰富角色背景与世界观设定。例如温迪、安柏、凯亚等角色的过去，都能在官方漫画中找到线索。官方漫画画风精美，剧情与游戏内容紧密相连，是了解提瓦特大陆深层故事的重要途径。</p>
+                </article>
+                <article class="intro-card">
+                    <h3><span class="card-icon">🎨</span>同人漫画</h3>
+                    <p>由全球众多热爱原神的创作者绘制的同人漫画作品。这类漫画题材广泛，包括角色日常、冒险故事、CP向剧情、搞笑短篇等。同人漫画展现了丰富的想象力和多样的艺术风格，许多优秀作品在社区中广受欢迎，为玩家提供了另一种感受原神魅力的方式。</p>
+                </article>
+                <article class="intro-card">
+                    <h3><span class="card-icon">🌍</span>漫画与游戏的关系</h3>
+                    <p>原神漫画和游戏相辅相成。游戏中的许多角色背景、地区历史、事件细节会在漫画中得到补充和展开。阅读漫画可以帮助玩家更深入地理解游戏剧情，感受角色内心的情感世界，同时也能在等待游戏更新的时间里，继续享受提瓦特的精彩故事。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 漫画分类 -->
+    <section class="section" id="category" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">原神漫画分类</h2>
+            <div class="section-line"></div>
+            <p class="section-sub">不同类型的原神漫画满足不同读者的喜好</p>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="cat-icon">⚔️</div>
+                    <h3>冒险剧情类</h3>
+                    <p>围绕角色冒险经历展开，包含战斗、探索、解谜等元素，剧情紧凑，令人身临其境。</p>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">😄</div>
+                    <h3>轻松搞笑类</h3>
+                    <p>以角色日常互动为切入点，风格幽默诙谐，让读者在轻松的氛围中感受角色的另一面。</p>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">💕</div>
+                    <h3>CP情感类</h3>
+                    <p>专注于角色之间的情感互动，细腻描绘友情、羁绊或浪漫关系，情感丰富动人。</p>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🎭</div>
+                    <h3>角色单篇类</h3>
+                    <p>深入挖掘某一位角色的背景故事、性格特点和成长历程，让读者更全面地了解喜欢的角色。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section class="section" id="recommend">
+        <div class="container">
+            <h2 class="section-title">热门原神漫画推荐</h2>
+            <div class="section-line"></div>
+            <p class="section-sub">以下推荐涵盖了官方作品与优秀同人创作，供不同口味的旅行者参考</p>
+            <div class="comic-list">
+                <article class="comic-item">
+                    <div class="comic-cover">
+                        <span>🍃</span>
+                        <span class="comic-badge">官方</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>温迪与特瓦林之歌</h3>
+                        <span class="tag">官方剧情</span>
+                        <span class="tag">蒙德</span>
+                        <p>讲述风神温迪与东风之龙特瓦林之间的羁绊，以及蒙德城的历史往事。</p>
+                    </div>
+                </article>
+                <article class="comic-item">
+                    <div class="comic-cover cover-2">
+                        <span>🔥</span>
+                        <span class="comic-badge">官方</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>安柏的骑士之路</h3>
+                        <span class="tag">角色起源</span>
+                        <span class="tag">蒙德</span>
+                        <p>描绘侦察骑士安柏的成长故事，展现她与祖父之间温暖的亲情回忆。</p>
+                    </div>
+                </article>
+                <article class="comic-item">
+                    <div class="comic-cover cover-3">
+                        <span>🌊</span>
+                        <span class="comic-badge">同人</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>璃月日常物语</h3>
+                        <span class="tag">轻松日常</span>
+                        <span class="tag">璃月</span>
+                        <p>以璃月港为舞台的轻松日常漫画，描绘角色们在闲暇时光的趣味互动。</p>
+                    </div>
+                </article>
+                <article class="comic-item">
+                    <div class="comic-cover cover-4">
+                        <span>⚡</span>
+                        <span class="comic-badge">同人</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>稻妻雷电传说</h3>
+                        <span class="tag">剧情向</span>
+                        <span class="tag">稻妻</span>
+                        <p>围绕雷电将军与稻妻的故事展开的同人创作，探讨永恒与变革的主题。</p>
+                    </div>
+                </article>
+                <article class="comic-item">
+                    <div class="comic-cover cover-5">
+                        <span>❄️</span>
+                        <span class="comic-badge">同人</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>至冬国的信使</h3>
+                        <span class="tag">冒险</span>
+                        <span class="tag">愚人众</span>
+                        <p>以愚人众执行官为主角的同人故事，探索至冬国背后的秘密与阴谋。</p>
+                    </div>
+                </article>
+                <article class="comic-item">
+                    <div class="comic-cover cover-6">
+                        <span>🌈</span>
+                        <span class="comic-badge">官方</span>
+                    </div>
+                    <div class="comic-info">
+                        <h3>旅行者手记</h3>
+                        <span class="tag">官方</span>
+                        <span class="tag">综合</span>
+                        <p>记录旅行者在提瓦特大陆的见闻与冒险，串联各个地区的精彩故事。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 阅读指南 -->
+    <section class="section" id="guide" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">原神漫画阅读指南</h2>
+            <div class="section-line"></div>
+            <p class="section-sub">如何找到并阅读原神漫画？以下步骤为你提供参考</p>
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <h3>了解官方发布渠道</h3>
+                    <p>原神官方漫画主要在米哈游官网的漫画专区发布，同时也会通过官方社交媒体账号更新动态。建议关注原神官方网站和微博等平台，第一时间获取官方漫画的更新信息。</p>
+                </div>
+                <div class="guide-step">
+                    <h3>探索同人创作平台</h3>
+                    <p>优秀的同人原神漫画多发布在Pixiv、微博、Lofter等创作社区。使用"原神漫画"或具体角色名作为关键词搜索，可以发现大量高质量的同人作品。</p>
+                </div>
+                <div class="guide-step">
+                    <h3>关注漫画汉化组</h3>
+                    <p>部分国外创作者的原神漫画需要汉化。许多热心汉化组会翻译并发布这些作品。在B站、贴吧等平台可以找到汉化组发布的作品合集。</p>
+                </div>
+                <div class="guide-step">
+                    <h3>参与社区讨论</h3>
+                    <p>原神相关论坛和社区中，玩家会分享和推荐优秀的漫画作品。参与讨论不仅可以发现新作品，还能与其他读者交流阅读心得，获得更好的阅读体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">阅读原神漫画的注意事项</h2>
+            <div class="section-line"></div>
+            <div class="tips-box">
+                <h3>给旅行者的小建议</h3>
+                <ul>
+                    <li>官方漫画与游戏剧情存在关联，建议先体验相关游戏内容后再阅读，获得更完整的体验。</li>
+                    <li>同人漫画属于二次创作，角色设定可能与官方存在差异，请以官方设定为准。</li>
+                    <li>尊重创作者版权，支持正版作品。如需转载或分享，请注明原作者及出处。</li>
+                    <li>部分漫画平台可能存在广告或弹窗，注意辨别网站安全性，保护个人信息。</li>
+                    <li>漫画阅读顺序可根据个人兴趣自由选择，官方漫画建议按时间线阅读效果更佳。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">关于原神漫画的常见问题</h2>
+            <div class="section-line"></div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>原神官方漫画在哪里可以免费阅读？</h3>
+                    <p>原神官方漫画可以在米哈游官方网站的漫画专区免费在线阅读。官方也会在部分合作平台同步更新，具体渠道以官方公告为准。漫画需要联网访问，无需额外付费。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>官方漫画与游戏剧情有何关联？</h3>
+                    <p>官方漫画主要作为游戏剧情的补充和延伸，讲述游戏正传之前或之间的故事。例如部分角色在漫画中展现的过去经历，有助于玩家理解他们在游戏中的动机和性格。但阅读漫画并非理解游戏剧情的必要条件。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>如何寻找特定角色的同人漫画？</h3>
+                    <p>可以在创作平台使用"角色名+漫画"作为关键词搜索，例如"钟离漫画""可莉漫画"等。许多平台也支持标签筛选功能，通过角色标签可以快速找到相关作品。此外，角色超话和粉丝社区也是发现作品的好地方。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>同人漫画可以用于商业用途吗？</h3>
+                    <p>不可以。同人漫画虽然是非官方创作，但其角色和世界观设定仍属于米哈游的知识产权。未经授权，任何同人作品都不得用于商业用途。创作者和读者都应尊重知识产权，支持正版。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>原神漫画多久更新一次？</h3>
+                    <p>官方漫画的更新频率并不固定，通常与游戏版本更新或活动相关。同人漫画的更新取决于创作者个人进度。建议关注官方渠道和创作者主页，以获取最新的更新信息。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>原神漫画漫游指南</h4>
+                <ul>
+                    <li>提供原神漫画相关资讯与阅读指引</li>
+                    <li>帮助旅行者发现更多精彩故事</li>
+                    <li>尊重版权，支持正版创作</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#intro">漫画简介</a></li>
+                    <li><a href="#category">漫画分类</a></li>
+                    <li><a href="#recommend">热门推荐</a></li>
+                    <li><a href="#guide">阅读指南</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关主题</h4>
+                <ul>
+                    <li>原神官方资讯</li>
+                    <li>同人创作社区</li>
+                    <li>漫画汉化资源</li>
+                    <li>旅行者交流论坛</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>本页面为原神漫画爱好者提供信息参考，所有漫画版权归原作者及米哈游所有。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+          </html>
